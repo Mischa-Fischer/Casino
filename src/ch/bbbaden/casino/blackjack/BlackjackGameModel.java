@@ -28,7 +28,6 @@ public class BlackjackGameModel {
         changes.firePropertyChange("cardP2", oldcard, newcard);
         newcard = rand.nextInt(52);
         changes.firePropertyChange("cardD2", oldcard, newcard);
-
     }
 
     public void AddPropertyChangeListener(final PropertyChangeListener listener) {

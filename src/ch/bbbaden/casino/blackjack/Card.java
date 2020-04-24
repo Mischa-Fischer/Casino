@@ -6,8 +6,8 @@ package ch.bbbaden.casino.blackjack;
  */
 public class Card {
 
-    private int value;
-    private int id;
+    private final int value;
+    private final int id;
 
     public Card(int id, int value) {
         this.id = id;

@@ -17,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -92,8 +93,6 @@ public class BlackjackGameController implements Initializable {
     @FXML
     private Label resultlbl;
     @FXML
-    private Label scorelbl;
-    @FXML
     private Label totalDealerlbl;
     @FXML
     private Label totalPlayerlbl;
@@ -122,8 +121,6 @@ public class BlackjackGameController implements Initializable {
         insurnacetxt.setDisable(true);
         insurnacetxt.setVisible(false);
 
-        
-
     }
 
     public void setViewModel(BlackjackGameViewModel vm) {
@@ -150,7 +147,7 @@ public class BlackjackGameController implements Initializable {
         this.user = user;
         creditlbl.setText(Double.toString(user.getBalance()));
     }
-    
+
 
     /*When play button is clicked 
     Two cards of Player and Dealer is shown. The Sum of the cards Value will be counted. 
@@ -227,10 +224,16 @@ public class BlackjackGameController implements Initializable {
                     doublebtn.setDisable(false);
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Invalid amount, please give a valid amount.");
+                JOptionPane.showMessageDialog(null,
+                        "Invalid amount, please give a valid amount!",
+                        "Error",
+                        JOptionPane.WARNING_MESSAGE);
             }
         } else {
-            System.out.println("Invalid amount, please give a valid amount.");
+            JOptionPane.showMessageDialog(null,
+                    "Invalid amount, please give a valid amount!",
+                    "Error",
+                    JOptionPane.WARNING_MESSAGE);
         }
     }
 
@@ -316,7 +319,10 @@ public class BlackjackGameController implements Initializable {
             }
             totalPlayerlbl.setText(Integer.toString(playersum));
         } else {
-            System.out.println("Invalid input, please try again.");
+            JOptionPane.showMessageDialog(null,
+                    "Invalid input, please try again!",
+                    "Error",
+                    JOptionPane.WARNING_MESSAGE);
         }
     }
 
@@ -654,39 +660,39 @@ public class BlackjackGameController implements Initializable {
                 double newBalance = user.getBalance() - amountsum;
                 user.setBalance(newBalance);
                 creditlbl.setText(Double.toString(user.getBalance()));
-                user.updateStatistics(5, amountsum*2, resultlbl.getText(), -amountsum*2);
+                user.updateStatistics(5, amountsum * 2, resultlbl.getText(), -amountsum * 2);
             } else {
                 NegativeP = false;
             }
             if (21 - summeD < 0) {
                 NegativeD = true;
                 resultlbl.setText("YOU WON!!");
-                double newBalance = user.getBalance() + amountsum *3;
+                double newBalance = user.getBalance() + amountsum * 3;
                 user.setBalance(newBalance);
                 creditlbl.setText(Double.toString(user.getBalance()));
-                 user.updateStatistics(5, amountsum*2, resultlbl.getText(), amountsum*2);
+                user.updateStatistics(5, amountsum * 2, resultlbl.getText(), amountsum * 2);
             } else {
                 NegativeD = false;
             }
             if (NegativeP == false && NegativeD == false) {
                 if (21 - summeP < 21 - summeD) {
                     resultlbl.setText("YOU WON!");
-                     double newBalance = user.getBalance() + amountsum *3;
+                    double newBalance = user.getBalance() + amountsum * 3;
                     user.setBalance(newBalance);
                     creditlbl.setText(Double.toString(user.getBalance()));
-                    user.updateStatistics(5, amountsum*2, resultlbl.getText(), amountsum*2);
+                    user.updateStatistics(5, amountsum * 2, resultlbl.getText(), amountsum * 2);
                 } else if (21 - summeP > 21 - summeD) {
                     resultlbl.setText("YOU LOST!!");
                     double newBalance = user.getBalance() - amountsum;
                     user.setBalance(newBalance);
                     creditlbl.setText(Double.toString(user.getBalance()));
-                     user.updateStatistics(5, amountsum*2, resultlbl.getText(), -amountsum*2);
+                    user.updateStatistics(5, amountsum * 2, resultlbl.getText(), -amountsum * 2);
                 } else {
                     resultlbl.setText("TIE!");
                     double newBalance = user.getBalance() + amountsum;
                     user.setBalance(newBalance);
                     creditlbl.setText(Double.toString(user.getBalance()));
-                     user.updateStatistics(5, amountsum*2, resultlbl.getText(), 0);
+                    user.updateStatistics(5, amountsum * 2, resultlbl.getText(), 0);
                 }
             }
         } else {
@@ -700,7 +706,7 @@ public class BlackjackGameController implements Initializable {
             if (21 - summeD < 0) {
                 NegativeD = true;
                 resultlbl.setText("YOU WON!!");
-                double newBalance = user.getBalance() + amountsum *2;
+                double newBalance = user.getBalance() + amountsum * 2;
                 user.setBalance(newBalance);
                 creditlbl.setText(Double.toString(user.getBalance()));
                 user.updateStatistics(5, amountsum, resultlbl.getText(), amountsum);
@@ -710,17 +716,17 @@ public class BlackjackGameController implements Initializable {
             if (NegativeP == false && NegativeD == false) {
                 if (21 - summeP < 21 - summeD) {
                     resultlbl.setText("YOU WON!!");
-                    double newBalance = user.getBalance() + amountsum *2;
+                    double newBalance = user.getBalance() + amountsum * 2;
                     user.setBalance(newBalance);
                     creditlbl.setText(Double.toString(user.getBalance()));
                     user.updateStatistics(5, amountsum, resultlbl.getText(), amountsum);
                 } else if (21 - summeP > 21 - summeD) {
                     resultlbl.setText("YOU LOST!!");
                     user.updateStatistics(5, amountsum, resultlbl.getText(), -amountsum);
-                    
+
                 } else {
                     resultlbl.setText("TIE!");
-                     double newBalance = user.getBalance() + amountsum;
+                    double newBalance = user.getBalance() + amountsum;
                     user.setBalance(newBalance);
                     creditlbl.setText(Double.toString(user.getBalance()));
                     user.updateStatistics(5, amountsum, resultlbl.getText(), 0);
@@ -739,7 +745,10 @@ public class BlackjackGameController implements Initializable {
             insurancebtn.textFillProperty().set(Color.MAROON);
             insuranceCheck = true;
             insurance = Integer.parseInt(insurnacetxt.getText());
-            System.out.println("You clicked Insurance.");
+            JOptionPane.showMessageDialog(null,
+                    "You clicked Insurance.",
+                    "Insurnace.",
+                    JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -753,21 +762,17 @@ public class BlackjackGameController implements Initializable {
             double newBalance = user.getBalance() + credit + amountsum;
             user.setBalance(newBalance);
             creditlbl.setText(Double.toString(user.getBalance()));
-            user.updateStatistics(5, amountsum+credit, "Versicherungs gewinn", amountsum*2+credit);
+            user.updateStatistics(5, amountsum + credit, "Versicherungs gewonnen: ", amountsum * 2 + credit);
         } else {
             double newBalance = user.getBalance() - credit + amountsum;
             user.setBalance(newBalance);
             creditlbl.setText(Double.toString(user.getBalance()));
-            user.updateStatistics(5, amountsum+credit, "Versicherungs verloren", -amountsum-credit);
+            user.updateStatistics(5, amountsum + credit, "Versicherungs verloren: ", -amountsum - credit);
         }
     }
 
-    private void scorePlayer() {
-
-    }
-
     @FXML
-    private void ResetAction(ActionEvent event) {
+    private void resetAction(ActionEvent event) {
         play = true;
         cardsplayer.clear();
         cardsdealer.clear();
@@ -806,7 +811,6 @@ public class BlackjackGameController implements Initializable {
         insurancebtn.textFillProperty().set(Color.WHITE);
         insuranceCheck = false;
         insurance = 0;
-
     }
 
     //Cards of Player
@@ -1244,6 +1248,5 @@ public class BlackjackGameController implements Initializable {
                 break;
         }
     }
-    
 
 }

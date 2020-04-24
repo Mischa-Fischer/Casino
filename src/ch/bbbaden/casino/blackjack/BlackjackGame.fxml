@@ -141,7 +141,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
         </Button>
-        <Button fx:id="resetbtn" layoutX="1094.0" layoutY="797.0" mnemonicParsing="false" onAction="#ResetAction" prefHeight="46.0" prefWidth="128.0" text="Reset">
+        <Button fx:id="resetbtn" layoutX="1094.0" layoutY="797.0" mnemonicParsing="false" onAction="#resetAction" prefHeight="46.0" prefWidth="128.0" text="Reset">
             <font>
                 <Font name="VAGRounded BT" size="22.0" />
             </font>
@@ -165,18 +165,9 @@
                 <Font size="21.0" />
             </font>
         </Label>
-        <Label fx:id="resultlbl" layoutX="886.0" layoutY="207.0" prefHeight="103.0" prefWidth="462.0" textAlignment="CENTER" textFill="WHITE">
+        <Label fx:id="resultlbl" layoutX="886.0" layoutY="206.0" prefHeight="103.0" prefWidth="462.0" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="56.0" />
-            </font>
-        </Label>
-        <Label fx:id="scorelbl" layoutX="1065.0" layoutY="144.0" prefHeight="21.0" prefWidth="75.0" textFill="WHITE">
-         <font>
-            <Font name="VAGRounded BT" size="18.0" />
-         </font></Label>
-        <Label layoutX="1001.0" layoutY="141.0" text="Score:" textFill="WHITE">
-            <font>
-                <Font name="VAGRounded BT" size="18.0" />
             </font>
         </Label>
       <Button fx:id="insurancebtn" layoutX="16.0" layoutY="746.0" mnemonicParsing="false" onAction="#insuranceAction" prefHeight="42.0" prefWidth="135.0" style="-fx-background-color: transparent;" text="Insurance:" textFill="WHITE">

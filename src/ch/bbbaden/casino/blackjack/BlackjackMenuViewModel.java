@@ -12,8 +12,8 @@ import javafx.beans.property.StringProperty;
 public class BlackjackMenuViewModel {
 
     private MainApp mainApp;
-    private User user;
-    private StringProperty balance = new SimpleStringProperty();
+    private final User user;
+    private final StringProperty balance = new SimpleStringProperty();
     public BlackjackMenuViewModel(User user) {
        this.user = user;
        balance.setValue(Double.toString(user.getBalance()));
