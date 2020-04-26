@@ -148,7 +148,28 @@ public class BlackjackGameController implements Initializable {
         creditlbl.setText(Double.toString(user.getBalance()));
     }
 
-
+//    private void amountAction(ActionEvent event) {
+//        int amount = Integer.parseInt(amountxt.getText());
+//        double credit = Double.parseDouble(creditlbl.getText());
+//        if (amount >= credit) {
+//            JOptionPane.showMessageDialog(null,
+//                    "Invalid amount.shen",
+//                    "Error",
+//                    JOptionPane.WARNING_MESSAGE);
+//        } else {
+//            amountsum = Double.parseDouble(amountxt.getText());
+//            double oldBalance = user.getBalance();
+//            double newBalance = user.getBalance() - amountsum;
+//            user.setBalance(newBalance);
+//            creditlbl.setText(Double.toString(user.getBalance()));
+//            vm.setAmount(amountsum);
+//
+//            JOptionPane.showMessageDialog(null,
+//                    "Have fun playing!",
+//                    "Start.",
+//                    JOptionPane.INFORMATION_MESSAGE);
+//        }
+//    }
     /*When play button is clicked 
     Two cards of Player and Dealer is shown. The Sum of the cards Value will be counted. 
     Double button is shown when, the sum is 9, 10 or 11
@@ -157,71 +178,82 @@ public class BlackjackGameController implements Initializable {
     private void playAction(ActionEvent event) {
         if (play == true) {
             try {
-                amountsum = Double.parseDouble(amountxt.getText());
-                double oldBalance = user.getBalance();
-                double newBalance = user.getBalance() - amountsum;
-                user.setBalance(newBalance);
-                creditlbl.setText(Double.toString(user.getBalance()));
-                vm.setAmount(amountsum);
-                standactive = true;
-                hitactive = true;
-
-                vm.play();
-                cardsPlayer(card1, cardP1, "cards", 11);
-                cardsDealer(card2, cardD1, "cards", 11);
-
-                //Check the ace Value
-                if (cardsplayer.get(0).getValue() == 11) {
-                    cardsPlayer(card3, cardP2, "cards", 1);
+                //Checks if the amount is bigger than their actual credit
+                int amount = Integer.parseInt(amountxt.getText());
+                double credit = Double.parseDouble(creditlbl.getText());
+                if (amount >= credit) {
+                    JOptionPane.showMessageDialog(null,
+                            "Invalid amount.",
+                            "Error",
+                            JOptionPane.WARNING_MESSAGE);
                 } else {
-                    cardsPlayer(card3, cardP2, "cards", 11);
-                }
+                    amountsum = Double.parseDouble(amountxt.getText());
+                    double oldBalance = user.getBalance();
+                    double newBalance = user.getBalance() - amountsum;
+                    user.setBalance(newBalance);
+                    creditlbl.setText(Double.toString(user.getBalance()));
+                    vm.setAmount(amountsum);
 
-                //Check the ace Value
-                if (cardsdealer.get(0).getValue() == 11) {
-                    cardsDealer(card4, cardD2, "cards", 1);
-                } else {
-                    cardsDealer(card4, cardD2, "cards", 11);
-                }
-                cardDHide.setImage(new Image("cards/CardBack.png"));
+                    standactive = true;
+                    hitactive = true;
 
-                if (cardsdealer.get(0).getValue() == 11) {
-                    insurancebtn.setDisable(false);
-                    insurancebtn.setVisible(true);
-                    insurnacetxt.setDisable(false);
-                    insurnacetxt.setVisible(true);
-                }
+                    vm.play();
+                    cardsPlayer(card1, cardP1, "cards", 11);
+                    cardsDealer(card2, cardD1, "cards", 11);
 
-                playersum = 0;
-                //--PLAYER SUMME--//
-                for (int i = 0; i < cardsplayer.size(); i++) {
-                    playersum += cardsplayer.get(i).getValue();
-                }
-                if (playersum > 20) {
-                    stand();
-                }
+                    //Check the ace Value
+                    if (cardsplayer.get(0).getValue() == 11) {
+                        cardsPlayer(card3, cardP2, "cards", 1);
+                    } else {
+                        cardsPlayer(card3, cardP2, "cards", 11);
+                    }
 
-                totalPlayerlbl.setText(Integer.toString(playersum));
+                    //Check the ace Value
+                    if (cardsdealer.get(0).getValue() == 11) {
+                        cardsDealer(card4, cardD2, "cards", 1);
+                    } else {
+                        cardsDealer(card4, cardD2, "cards", 11);
+                    }
+                    cardDHide.setImage(new Image("cards/CardBack.png"));
 
-                //--DEALER SUMME--//
-                for (int i = 0; i < cardsdealer.size(); i++) {
-                    dealersum += cardsdealer.get(i).getValue();
-                }
-                totalDealerlbl.setText(Integer.toString(cardsdealer.get(0).getValue()));
-                dealersum = 0;
+                    if (cardsdealer.get(0).getValue() == 11) {
+                        insurancebtn.setDisable(false);
+                        insurancebtn.setVisible(true);
+                        insurnacetxt.setDisable(false);
+                        insurnacetxt.setVisible(true);
+                    }
 
-                play = false;
+                    playersum = 0;
+                    //--PLAYER SUMME--//
+                    for (int i = 0; i < cardsplayer.size(); i++) {
+                        playersum += cardsplayer.get(i).getValue();
+                    }
+                    if (playersum > 20) {
+                        stand();
+                    }
 
-                playersum = 0;
-                for (int i = 0; i < cardsplayer.size(); i++) {
-                    playersum += cardsplayer.get(i).getValue();
-                }
+                    totalPlayerlbl.setText(Integer.toString(playersum));
 
-                //--DOUBLE BUTTON--//
-                if (playersum > 8 && playersum < 12) {
-                    doublebtn.setVisible(true);
+                    //--DEALER SUMME--//
+                    for (int i = 0; i < cardsdealer.size(); i++) {
+                        dealersum += cardsdealer.get(i).getValue();
+                    }
+                    totalDealerlbl.setText(Integer.toString(cardsdealer.get(0).getValue()));
+                    dealersum = 0;
 
-                    doublebtn.setDisable(false);
+                    play = false;
+
+                    playersum = 0;
+                    for (int i = 0; i < cardsplayer.size(); i++) {
+                        playersum += cardsplayer.get(i).getValue();
+                    }
+
+                    //--DOUBLE BUTTON--//
+                    if (playersum > 8 && playersum < 12) {
+                        doublebtn.setVisible(true);
+
+                        doublebtn.setDisable(false);
+                    }
                 }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null,
@@ -237,7 +269,7 @@ public class BlackjackGameController implements Initializable {
         }
     }
 
-    //rewrite to model
+
     //When hit button is clicked
     @FXML
     private void hitAction(ActionEvent event) {
@@ -326,7 +358,6 @@ public class BlackjackGameController implements Initializable {
         }
     }
 
-    //rewrite to model
     //When Stand button is clicked
     @FXML
     private void standAction(ActionEvent event) {

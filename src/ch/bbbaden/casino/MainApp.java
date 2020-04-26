@@ -5,7 +5,6 @@
  */
 package ch.bbbaden.casino;
 
-
 import ch.bbbaden.casino.login.LoginController;
 import ch.bbbaden.casino.login.SignUpController;
 import ch.bbbaden.casino.mainmenu.*;
@@ -28,12 +27,12 @@ public class MainApp extends Application {
 
     Stage stage;
     User user;
+
     @Override
     public void start(Stage stage) throws Exception {
-       
-    
-       this.stage = stage;
-       showLogin();
+
+        this.stage = stage;
+        showLogin();
 
     }
 
@@ -47,20 +46,20 @@ public class MainApp extends Application {
     public void setUser(User user) {
         this.user = user;
     }
-    
-     public void showMainMenu() {
+
+    public void showMainMenu() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("mainmenu/MainMenu.fxml"));
             Parent root;
             root = loader.load();
-             MainMenuController view = loader.getController();
-           
+            MainMenuController view = loader.getController();
+
             MainMenuViewModel viewModel = new MainMenuViewModel(user);
             viewModel.setMainApp(this);
             view.setViewModel(viewModel);
             view.bind();
             view.userAdmin();
-            final Scene scene = new Scene(root);         
+            final Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
 
@@ -68,9 +67,9 @@ public class MainApp extends Application {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-     public void showLogin(){
-         
+
+    public void showLogin() {
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("login/Login.fxml"));
             Parent root;
@@ -83,10 +82,11 @@ public class MainApp extends Application {
         } catch (IOException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-     }
-     public void showSignUp(){
-         
+
+    }
+
+    public void showSignUp() {
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("login/SignUp.fxml"));
             Parent root;
@@ -99,10 +99,11 @@ public class MainApp extends Application {
         } catch (IOException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-     }
-      public void showKasse(){
-         
+
+    }
+
+    public void showKasse() {
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("mainmenu/Kasse.fxml"));
             Parent root;
@@ -116,10 +117,11 @@ public class MainApp extends Application {
         } catch (IOException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-     }
-       public void showStatistik(){
-         
+
+    }
+
+    public void showStatistik() {
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("mainmenu/Admin.fxml"));
             Parent root;
@@ -132,8 +134,9 @@ public class MainApp extends Application {
         } catch (IOException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-     }
+
+    }
+
     public void showVideoPokerMenu() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("videopoker/VideoPokerMenu.fxml"));
@@ -152,8 +155,6 @@ public class MainApp extends Application {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-   
 
     public void showVideoPokerGame() {
         try {
@@ -176,8 +177,9 @@ public class MainApp extends Application {
         }
 
     }
+
     public void showVideoPokerHilfe() {
-        try{
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("videopoker/VideoPokerHilfe.fxml"));
             Parent root;
             root = loader.load();
@@ -186,13 +188,12 @@ public class MainApp extends Application {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        }catch (IOException ex) {
+        } catch (IOException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    
-     public void showBlackjackMenu() {
+    public void showBlackjackMenu() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("blackjack/BlackjackMenu.fxml"));
             Parent root;
@@ -211,24 +212,23 @@ public class MainApp extends Application {
         }
     }
 
-
     public void showBlackjackGame() {
         try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("blackjack/BlackjackGame.fxml"));
-        Parent root;
-        root = loader.load();
-        BlackjackGameController view = loader.getController();
-        BlackjackGameModel model = new BlackjackGameModel();
-        BlackjackGameViewModel viewModel = new BlackjackGameViewModel(model);
-        viewModel.setMainApp(this);
-        model.AddPropertyChangeListener(viewModel);
-        view.setViewModel(viewModel);
-        view.bind();
-        view.setUser(user);
-        Scene scene = new Scene(root);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("blackjack/BlackjackGame.fxml"));
+            Parent root;
+            root = loader.load();
+            BlackjackGameController view = loader.getController();
+            BlackjackGameModel model = new BlackjackGameModel();
+            BlackjackGameViewModel viewModel = new BlackjackGameViewModel(model);
+            viewModel.setMainApp(this);
+            model.AddPropertyChangeListener(viewModel);
+            view.setViewModel(viewModel);
+            view.bind();
+            view.setUser(user);
+            Scene scene = new Scene(root);
 
-        stage.setScene(scene);
-        stage.show();
+            stage.setScene(scene);
+            stage.show();
 
         } catch (IOException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);

@@ -2,6 +2,7 @@ package ch.bbbaden.casino.blackjack;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -16,17 +17,20 @@ public class BlackjackGameModel {
     Random rand = new Random();
     private int newcard = 0;
     private double amountsum = 0;
+    private ArrayList<Integer> allCards = new ArrayList<>();
 
     //When Play button is clicked, 4 cards will be shown randomly
     public void play() {
+        allCards.clear();
+
         int oldcard = newcard;
-        newcard = rand.nextInt(52);
+        newcard = newCard();//rand.nextInt(52);
         changes.firePropertyChange("cardP1", oldcard, newcard);
-        newcard = rand.nextInt(52);
+        newcard = newCard(); //rand.nextInt(52);
         changes.firePropertyChange("cardD1", oldcard, newcard);
-        newcard = rand.nextInt(52);
+        newcard = newCard(); //rand.nextInt(52);
         changes.firePropertyChange("cardP2", oldcard, newcard);
-        newcard = rand.nextInt(52);
+        newcard = newCard(); //rand.nextInt(52);
         changes.firePropertyChange("cardD2", oldcard, newcard);
     }
 
@@ -72,6 +76,21 @@ public class BlackjackGameModel {
 
     public void setAmountsum(double amountsum) {
         this.amountsum = amountsum;
+    }
+
+    private int newCard() {
+        int cardTaken = 0;
+        cardTaken = rand.nextInt((52) + 1) + 1;
+        for (Integer allCard : allCards) {
+            if (allCard.equals(cardTaken)) {
+                cardTaken = rand.nextInt((52) + 1) + 1;
+                if (cardTaken == 0) {
+                    cardTaken = rand.nextInt((52) + 1) + 1;
+                }
+            }
+        }
+        allCards.add(cardTaken);
+        return cardTaken;
     }
 
 }
