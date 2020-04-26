@@ -263,7 +263,7 @@ public class BlackjackGameController implements Initializable {
             }
         } else {
             JOptionPane.showMessageDialog(null,
-                    "Invalid amount, please give a valid amount!",
+                    "Reset to start.",
                     "Error",
                     JOptionPane.WARNING_MESSAGE);
         }
