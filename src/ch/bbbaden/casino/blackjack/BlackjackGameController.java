@@ -1056,9 +1056,6 @@ public class BlackjackGameController implements Initializable {
                 cardView.setImage(new Image(set + "/QS.png"));
                 cardsplayer.add(new Card(51, 10));
                 break;
-            default:
-                System.out.println("Card 0");
-                break;
         }
     }
 
@@ -1273,9 +1270,6 @@ public class BlackjackGameController implements Initializable {
             case 52:
                 cardView.setImage(new Image(set + "/QS.png"));
                 cardsdealer.add(new Card(51, 10));
-                break;
-            default:
-                System.out.println("Card 0");
                 break;
         }
     }

@@ -2,7 +2,6 @@ package ch.bbbaden.casino.blackjack;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -22,12 +21,16 @@ public class BlackjackGameModel {
     public void play() {
         int oldcard = newcard;
         newcard = rand.nextInt(52) + 1;
+        System.out.println(newcard);
         changes.firePropertyChange("cardP1", oldcard, newcard);
-        newcard = rand.nextInt(52) + 1 ;
+        newcard = rand.nextInt(52) + 1;
+        System.out.println(newcard);
         changes.firePropertyChange("cardD1", oldcard, newcard);
         newcard = rand.nextInt(52) + 1;
+        System.out.println(newcard);
         changes.firePropertyChange("cardP2", oldcard, newcard);
         newcard = rand.nextInt(52) + 1;
+        System.out.println(newcard);
         changes.firePropertyChange("cardD2", oldcard, newcard);
     }
 
@@ -40,15 +43,18 @@ public class BlackjackGameModel {
         int oldcard = newcard;
         switch (cardstakenP) {
             case 2:
-                newcard = rand.nextInt(52);
+                newcard = rand.nextInt(52) + 1;
+                System.out.println(newcard);
                 changes.firePropertyChange("cardP3", oldcard, newcard);
                 break;
             case 3:
-                newcard = rand.nextInt(52);
+                newcard = rand.nextInt(52) + 1;
+                System.out.println(newcard);
                 changes.firePropertyChange("cardP4", oldcard, newcard);
                 break;
             case 4:
-                newcard = rand.nextInt(52);
+                newcard = rand.nextInt(52) + 1;
+                System.out.println(newcard);
                 changes.firePropertyChange("cardP5", oldcard, newcard);
                 break;
         }
@@ -59,7 +65,8 @@ public class BlackjackGameModel {
         int oldcard = newcard;
 
         if (dealersum < 17) {
-            newcard = rand.nextInt(52);
+            newcard = rand.nextInt(52) + 1;
+            System.out.println(newcard);
             changes.firePropertyChange("cardD" + idcard, oldcard, newcard);
         }
     }
@@ -67,7 +74,8 @@ public class BlackjackGameModel {
     //When double is shown, a new card will be drawn horizontally 
     public void cardDouble() {
         int oldcard = newcard;
-        newcard = rand.nextInt(52);
+        newcard = rand.nextInt(52) + 1;
+        System.out.println(newcard);
         changes.firePropertyChange("cardDouble", oldcard, newcard);
     }
 
