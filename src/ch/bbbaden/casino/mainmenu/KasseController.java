@@ -46,8 +46,15 @@ public class KasseController implements Initializable {
         //Einzahlung wird getätigt, überprüft ob Zahl eingegeben
         try {
             double einzahlung = Double.parseDouble(einzahlungTxt.getText());
+            if(einzahlung > 0){
             user.setBalance(user.getBalance() + einzahlung);
             mainApp.showMainMenu();
+            }else{
+                JOptionPane.showMessageDialog(null,
+                    "Sie können keinen negativen Betrag einzahlen!",
+                    "Fehler Meldung",
+                    JOptionPane.WARNING_MESSAGE);
+            }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null,
                     "Sie müssen eine Zahl eingeben",

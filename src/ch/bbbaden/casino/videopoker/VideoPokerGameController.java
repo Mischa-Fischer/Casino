@@ -120,6 +120,7 @@ public class VideoPokerGameController implements Initializable {
 
     @FXML
     private void dealAction(ActionEvent event) {
+        if(vm.getPlayerBalance() >= vm.getCoins() || ersteRunde == false && gambleMode == false){
         //Erste Runde wird gestartet
         if(ersteRunde==true && gambleMode== false || ersteRunde==true &&winTxtLbl.getText().equals("Du hast verloren") ){
             canGamble = false;
@@ -145,6 +146,12 @@ public class VideoPokerGameController implements Initializable {
         }else{
             JOptionPane.showMessageDialog(null,
                             "Sie können keine neue Runde starten!",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
+        }
+        }else{
+            JOptionPane.showMessageDialog(null,
+                            "Sie haben zu wenig Geld um diese Runde zu starten!",
                             "Fehler Meldung",
                             JOptionPane.WARNING_MESSAGE);
         }

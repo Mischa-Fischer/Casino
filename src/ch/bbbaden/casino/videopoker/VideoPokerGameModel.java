@@ -59,6 +59,9 @@ public class VideoPokerGameModel {
     public double getBalance() {
         return balance;
     }
+    public double getCoinVal(){
+        return coinAnz*coinVal;
+    }
 
     public void coinAnzBet1() {
         //1 coin wetten

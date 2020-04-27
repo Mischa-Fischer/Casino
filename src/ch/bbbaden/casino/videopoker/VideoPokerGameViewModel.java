@@ -109,4 +109,10 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
     public void goToMenu(){
         mainApp.showMainMenu();
     }
+    public double getPlayerBalance(){
+        return model.getBalance();
+    }
+    public double getCoins(){
+        return model.getCoinVal();
+    }
 }
