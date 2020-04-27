@@ -148,28 +148,6 @@ public class BlackjackGameController implements Initializable {
         creditlbl.setText(Double.toString(user.getBalance()));
     }
 
-//    private void amountAction(ActionEvent event) {
-//        int amount = Integer.parseInt(amountxt.getText());
-//        double credit = Double.parseDouble(creditlbl.getText());
-//        if (amount >= credit) {
-//            JOptionPane.showMessageDialog(null,
-//                    "Invalid amount.shen",
-//                    "Error",
-//                    JOptionPane.WARNING_MESSAGE);
-//        } else {
-//            amountsum = Double.parseDouble(amountxt.getText());
-//            double oldBalance = user.getBalance();
-//            double newBalance = user.getBalance() - amountsum;
-//            user.setBalance(newBalance);
-//            creditlbl.setText(Double.toString(user.getBalance()));
-//            vm.setAmount(amountsum);
-//
-//            JOptionPane.showMessageDialog(null,
-//                    "Have fun playing!",
-//                    "Start.",
-//                    JOptionPane.INFORMATION_MESSAGE);
-//        }
-//    }
     /*When play button is clicked 
     Two cards of Player and Dealer is shown. The Sum of the cards Value will be counted. 
     Double button is shown when, the sum is 9, 10 or 11
@@ -269,7 +247,6 @@ public class BlackjackGameController implements Initializable {
         }
     }
 
-
     //When hit button is clicked
     @FXML
     private void hitAction(ActionEvent event) {
@@ -352,7 +329,7 @@ public class BlackjackGameController implements Initializable {
             totalPlayerlbl.setText(Integer.toString(playersum));
         } else {
             JOptionPane.showMessageDialog(null,
-                    "Invalid input, please try again!",
+                    "Press restart!",
                     "Error",
                     JOptionPane.WARNING_MESSAGE);
         }
@@ -454,6 +431,11 @@ public class BlackjackGameController implements Initializable {
             checkAll(playersum, dealersum);
             standactive = false;
             hitactive = false;
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Press restart!",
+                    "Error",
+                    JOptionPane.WARNING_MESSAGE);
         }
 
     }

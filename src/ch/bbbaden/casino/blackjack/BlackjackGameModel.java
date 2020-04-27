@@ -21,16 +21,12 @@ public class BlackjackGameModel {
     public void play() {
         int oldcard = newcard;
         newcard = rand.nextInt(52) + 1;
-        System.out.println(newcard);
         changes.firePropertyChange("cardP1", oldcard, newcard);
         newcard = rand.nextInt(52) + 1;
-        System.out.println(newcard);
         changes.firePropertyChange("cardD1", oldcard, newcard);
         newcard = rand.nextInt(52) + 1;
-        System.out.println(newcard);
         changes.firePropertyChange("cardP2", oldcard, newcard);
         newcard = rand.nextInt(52) + 1;
-        System.out.println(newcard);
         changes.firePropertyChange("cardD2", oldcard, newcard);
     }
 
@@ -44,17 +40,14 @@ public class BlackjackGameModel {
         switch (cardstakenP) {
             case 2:
                 newcard = rand.nextInt(52) + 1;
-                System.out.println(newcard);
                 changes.firePropertyChange("cardP3", oldcard, newcard);
                 break;
             case 3:
                 newcard = rand.nextInt(52) + 1;
-                System.out.println(newcard);
                 changes.firePropertyChange("cardP4", oldcard, newcard);
                 break;
             case 4:
                 newcard = rand.nextInt(52) + 1;
-                System.out.println(newcard);
                 changes.firePropertyChange("cardP5", oldcard, newcard);
                 break;
         }
@@ -66,7 +59,6 @@ public class BlackjackGameModel {
 
         if (dealersum < 17) {
             newcard = rand.nextInt(52) + 1;
-            System.out.println(newcard);
             changes.firePropertyChange("cardD" + idcard, oldcard, newcard);
         }
     }
@@ -75,7 +67,6 @@ public class BlackjackGameModel {
     public void cardDouble() {
         int oldcard = newcard;
         newcard = rand.nextInt(52) + 1;
-        System.out.println(newcard);
         changes.firePropertyChange("cardDouble", oldcard, newcard);
     }
 
