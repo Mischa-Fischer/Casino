@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: green;" styleClass="mainFxmlClass" stylesheets="@slotsview.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbbaden.casino.SlotMachine.SlotsViewController">
+    <children>
+      <HBox layoutX="234.0" layoutY="85.0" prefHeight="500.0" prefWidth="700.0">
+         <children>
+            <VBox prefHeight="500.0" prefWidth="100.0" styleClass="sideBar">
+               <children>
+                  <ImageView fx:id="img1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img2" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img3" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img4" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img5" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <VBox prefHeight="500.0" prefWidth="100.0" styleClass="sideBar">
+               <children>
+                  <ImageView fx:id="img6" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img7" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img8" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img9" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img10" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <VBox prefHeight="500.0" prefWidth="100.0" styleClass="sideBar">
+               <children>
+                  <ImageView fx:id="img11" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img12" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img13" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img14" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img15" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <VBox prefHeight="500.0" prefWidth="100.0" styleClass="sideBar">
+               <children>
+                  <ImageView fx:id="img16" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img17" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img18" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img19" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img20" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <ImageView fitHeight="313.0" fitWidth="180.0" layoutX="14.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnStart" layoutX="798.0" layoutY="711.0" mnemonicParsing="false" onAction="#btnStartClick" text="Start" />
+      <Label fx:id="lblGesammterEinsatz" layoutX="810.0" layoutY="660.0" text="Gesammter Einsatz" textFill="WHITE" />
+      <Label fx:id="lblGesammterEinsatzV" layoutX="1008.0" layoutY="660.0" text="Label" textFill="WHITE" />
+      <Label fx:id="lblKontostand" layoutX="114.0" layoutY="739.0" text="Kontostand" textFill="WHITE" />
+      <Label fx:id="lblKontostandV" layoutX="193.0" layoutY="739.0" text="Label" textFill="WHITE" />
+      <Label fx:id="lblGewinn" layoutX="259.0" layoutY="739.0" text="Gewinn" textFill="WHITE" />
+      <Label fx:id="lblGewinnV" layoutX="327.0" layoutY="739.0" text="Label" textFill="WHITE" />
+      <Button fx:id="btnTwoLines" layoutX="452.0" layoutY="701.0" mnemonicParsing="false" onAction="#btnTwoLinesClick" prefHeight="46.0" prefWidth="116.0" text="2 Lines" />
+      <Button fx:id="btnThreeLines" layoutX="486.0" layoutY="637.0" mnemonicParsing="false" onAction="#btnThreeLinesClick" prefHeight="46.0" prefWidth="116.0" text="3 Lines" />
+      <Button fx:id="btnFourLines" layoutX="610.0" layoutY="713.0" mnemonicParsing="false" onAction="#btnFourLinesClick" prefHeight="46.0" prefWidth="116.0" text="4 Lines" />
+      <Button fx:id="btnFiveLine" layoutX="634.0" layoutY="637.0" mnemonicParsing="false" onAction="#btnFiveLinesClick" prefHeight="46.0" prefWidth="116.0" text="5 Lines" />
+      <VBox accessibleRole="IMAGE_VIEW" layoutX="835.0" layoutY="85.0" prefHeight="500.0" prefWidth="153.0" styleClass="sideBar">
+         <children>
+            <ImageView fx:id="img21" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="img22" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="img23" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="img24" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="img25" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </VBox>
+      <Button fx:id="backBtn" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#backToMenu" text="Back" />
+   </children>
+</AnchorPane>

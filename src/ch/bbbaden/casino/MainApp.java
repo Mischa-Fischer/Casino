@@ -10,6 +10,7 @@ import ch.bbbaden.casino.login.SignUpController;
 import ch.bbbaden.casino.mainmenu.*;
 import ch.bbbaden.casino.videopoker.*;
 import ch.bbbaden.casino.blackjack.*;
+import ch.bbbaden.casino.SlotMachine.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -234,6 +235,30 @@ public class MainApp extends Application {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+    public void showSlots(){
+        FXMLLoader loader = new FXMLLoader (this.getClass().getResource("SlotMachine/SlotsView.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        SlotsViewController view = loader.getController();
+        Model model = new Model();
+        final ViewModel viewModel = new ViewModel(model);
+        view.setVM(viewModel);
+        
+        //view.bind();
+        view.setUser(user);
+        viewModel.setMainApp(this);
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("slotview.css");
+        
+        stage.setTitle("Slot-Machine");
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

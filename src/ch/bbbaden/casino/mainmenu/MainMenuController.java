@@ -79,6 +79,7 @@ public class MainMenuController implements Initializable {
 
     @FXML
     private void slotsAction(MouseEvent event) {
+        vm.showSlots();
     }
 
     @FXML

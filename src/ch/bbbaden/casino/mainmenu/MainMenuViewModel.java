@@ -67,6 +67,8 @@ public class MainMenuViewModel implements PropertyChangeListener{
     public StringProperty getName() {
         return name;
     }
-    
+    public void showSlots(){
+        mainApp.showSlots();
+    }
    
 }
