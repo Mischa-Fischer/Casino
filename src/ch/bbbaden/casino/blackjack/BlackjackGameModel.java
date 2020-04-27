@@ -20,13 +20,13 @@ public class BlackjackGameModel {
     //When Play button is clicked, 4 cards will be shown randomly
     public void play() {
         int oldcard = newcard;
-        newcard = rand.nextInt(52) + 1;
+        newcard = 15; //rand.nextInt(52) + 1;
         changes.firePropertyChange("cardP1", oldcard, newcard);
-        newcard = rand.nextInt(52) + 1;
+        newcard = 38; //rand.nextInt(52) + 1;
         changes.firePropertyChange("cardD1", oldcard, newcard);
-        newcard = rand.nextInt(52) + 1;
+        newcard = 16; //rand.nextInt(52) + 1;
         changes.firePropertyChange("cardP2", oldcard, newcard);
-        newcard = rand.nextInt(52) + 1;
+        newcard = 50; //rand.nextInt(52) + 1;
         changes.firePropertyChange("cardD2", oldcard, newcard);
     }
 

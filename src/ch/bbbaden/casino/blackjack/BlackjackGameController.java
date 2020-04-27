@@ -156,10 +156,10 @@ public class BlackjackGameController implements Initializable {
     private void playAction(ActionEvent event) {
         if (play == true) {
             try {
-                //Checks if the amount is bigger than their actual credit
+                //Checks if the amount is bigger than their actual credit or when amount is the same as 0
                 int amount = Integer.parseInt(amountxt.getText());
                 double credit = Double.parseDouble(creditlbl.getText());
-                if (amount >= credit) {
+                if (amount >= credit || amount == 0) {
                     JOptionPane.showMessageDialog(null,
                             "Invalid amount.",
                             "Error",
@@ -628,8 +628,9 @@ public class BlackjackGameController implements Initializable {
     @FXML
     private void doubleAction(MouseEvent event) {
 
-        //Counts the Amount twice
+        //when double is clicked
         doubleTrue = true;
+        //Counts the Amount twice
         int amount = Integer.parseInt(this.amountxt.getText());
         int doubleamount = amount * 2;
         doublelbl.setText(String.valueOf(doubleamount));
@@ -645,6 +646,7 @@ public class BlackjackGameController implements Initializable {
         }
         hitbtn.setDisable(true);
         standbtn.setDisable(true);
+        
 
         playersum = 0;
         for (int i = 0; i < cardsplayer.size(); i++) {
@@ -652,6 +654,10 @@ public class BlackjackGameController implements Initializable {
         }
         totalPlayerlbl.setText(Integer.toString(playersum));
         stand();
+        insurancebtn.setDisable(true);
+        insurnacetxt.setDisable(true);
+        doublebtn.setDisable(true);
+        
     }
 
     /*
@@ -748,7 +754,7 @@ public class BlackjackGameController implements Initializable {
         }
     }
 
-    //Resets everything, when reset button is clicked
+
     //When Insurnace button is clicked
     @FXML
     private void insuranceAction(ActionEvent event) {
@@ -783,7 +789,8 @@ public class BlackjackGameController implements Initializable {
             user.updateStatistics(5, amountsum + credit, "Versicherungs verloren: ", -amountsum - credit);
         }
     }
-
+    
+    //Resets everything, when reset button is clicked
     @FXML
     private void resetAction(ActionEvent event) {
         play = true;
