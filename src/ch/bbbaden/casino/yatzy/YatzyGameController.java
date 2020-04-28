@@ -6,6 +6,7 @@
 package ch.bbbaden.casino.yatzy;
 
 import ch.bbbaden.casino.MainApp;
+import ch.bbbaden.casino.User;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -23,7 +24,7 @@ import javafx.scene.control.TextField;
  */
 public class YatzyGameController implements Initializable {
     MainApp mainApp;
-    
+    User user;
 
     @FXML
     private Button buttonwuerfeln;
@@ -79,6 +80,8 @@ public class YatzyGameController implements Initializable {
     private TextField yatzygrid;
     @FXML
     private TextField totalgrid;
+    @FXML
+    private Label kontostandLbl;
 
     /**
      * Initializes the controller class.
@@ -90,6 +93,11 @@ public class YatzyGameController implements Initializable {
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+        kontostandLbl.setText(user.getBalance() + "");
     }
     
 

@@ -272,7 +272,7 @@ public class MainApp extends Application {
         }
         YatzyGameController view = loader.getController();
         view.setMainApp(this);
-        
+         view.setUser(user);
 
         final Scene scene = new Scene(root);
 

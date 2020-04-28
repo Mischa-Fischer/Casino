@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -11,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: RGB(169, 169, 169);" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="ch.bbbaden.casino.yatzy.YatzyGameController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: RGB(169, 169, 169);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbbaden.casino.yatzy.YatzyGameController">
     <children>
       <Button fx:id="buttonwuerfeln" layoutX="36.0" layoutY="161.0" mnemonicParsing="false" onAction="#buttonwuerfelnklick" prefHeight="35.0" prefWidth="220.0" text="würfeln">
          <font>
@@ -51,10 +50,6 @@
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <TextArea layoutX="40.0" layoutY="302.0" prefHeight="81.0" prefWidth="220.0">
-         <font>
-            <Font size="15.0" />
-         </font></TextArea>
       <Label layoutX="36.0" layoutY="215.0" text="verbleibende Würfe:">
          <font>
             <Font size="15.0" />
@@ -136,7 +131,9 @@
             <TextField fx:id="totalgrid" GridPane.columnIndex="1" GridPane.rowIndex="17" />
          </children>
       </GridPane>
-      <Separator layoutX="40.0" layoutY="289.0" prefHeight="13.0" prefWidth="220.0" />
+      <Separator layoutX="38.0" layoutY="332.0" prefHeight="13.0" prefWidth="220.0" />
       <Separator layoutX="278.0" layoutY="7.0" orientation="VERTICAL" prefHeight="487.0" prefWidth="14.0" />
+      <Label layoutX="34.0" layoutY="366.0" text="Kontostand:" />
+      <Label fx:id="kontostandLbl" layoutX="127.0" layoutY="366.0" prefHeight="21.0" prefWidth="134.0" />
    </children>
 </AnchorPane>
