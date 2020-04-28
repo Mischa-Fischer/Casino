@@ -12,6 +12,7 @@ import ch.bbbaden.casino.videopoker.*;
 import ch.bbbaden.casino.blackjack.*;
 import ch.bbbaden.casino.SlotMachine.*;
 import ch.bbbaden.casino.yatzy.*;
+import ch.bbbaden.casino.roulette.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -296,6 +297,51 @@ public class MainApp extends Application {
 
         stage.setScene(scene);
         stage.show();
+    }
+      
+      
+      public void showRouletteGame(){
+        FXMLLoader loader = new FXMLLoader (this.getClass().getResource("roulette/FXMLDocument.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        FXMLDocumentController view = loader.getController();
+        RouletteModel model = new RouletteModel();
+        view.setModel(model);
+        view.setMainApp(this);
+        view.bind();
+        view.setUser(user);
+        //Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.show();
+        
+    }
+    public void showRouletteMenu(){
+        FXMLLoader loader = new FXMLLoader (this.getClass().getResource("roulette/RouletteMenu.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         RouletteMenuController view = loader.getController();
+        view.setMainApp(this);
+        view.setUser(user);
+        //Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.show();
+        
     }
 
 }
