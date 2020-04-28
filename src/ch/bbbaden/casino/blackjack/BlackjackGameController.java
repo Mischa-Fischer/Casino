@@ -159,7 +159,7 @@ public class BlackjackGameController implements Initializable {
                 //Checks if the amount is bigger than their actual credit or when amount is the same as 0
                 int amount = Integer.parseInt(amountxt.getText());
                 double credit = Double.parseDouble(creditlbl.getText());
-                if (amount >= credit || amount == 0) {
+                if (amount > credit || amount == 0) {
                     JOptionPane.showMessageDialog(null,
                             "Invalid amount.",
                             "Error",
@@ -554,9 +554,9 @@ public class BlackjackGameController implements Initializable {
                         dealersum += cardsdealer.get(i).getValue();
                     }
                     if (dealersum > 10) {
-                        cardsDealer(card8, cardD4, "cardsDealer", 1);
+                        cardsDealer(card8, cardD4, "cards", 1);
                     } else {
-                        cardsDealer(card8, cardD4, "cardsDealer", 11);
+                        cardsDealer(card8, cardD4, "cards", 11);
                     }
 
                     dealersum = 0;
@@ -573,9 +573,9 @@ public class BlackjackGameController implements Initializable {
                             dealersum += cardsdealer.get(i).getValue();
                         }
                         if (dealersum > 10) {
-                            cardsDealer(card10, cardD5, "cardsDealer", 1);
+                            cardsDealer(card10, cardD5, "cards", 1);
                         } else {
-                            cardsDealer(card10, cardD5, "cardsDealer", 11);
+                            cardsDealer(card10, cardD5, "cards", 11);
                         }
 
                         dealersum = 0;
@@ -617,6 +617,17 @@ public class BlackjackGameController implements Initializable {
             hitactive = false;
         }
 
+        dealersum = 0;
+        for (int i = 0; i < cardsdealer.size(); i++) {
+            dealersum += cardsdealer.get(i).getValue();
+        }
+        totalDealerlbl.setText(Integer.toString(dealersum));
+
+        playersum = 0;
+        for (int i = 0; i < cardsplayer.size(); i++) {
+            playersum += cardsplayer.get(i).getValue();
+        }
+        totalPlayerlbl.setText(Integer.toString(playersum));
     }
 
     @FXML
@@ -646,7 +657,6 @@ public class BlackjackGameController implements Initializable {
         }
         hitbtn.setDisable(true);
         standbtn.setDisable(true);
-        
 
         playersum = 0;
         for (int i = 0; i < cardsplayer.size(); i++) {
@@ -657,7 +667,7 @@ public class BlackjackGameController implements Initializable {
         insurancebtn.setDisable(true);
         insurnacetxt.setDisable(true);
         doublebtn.setDisable(true);
-        
+
     }
 
     /*
@@ -754,7 +764,6 @@ public class BlackjackGameController implements Initializable {
         }
     }
 
-
     //When Insurnace button is clicked
     @FXML
     private void insuranceAction(ActionEvent event) {
@@ -789,7 +798,7 @@ public class BlackjackGameController implements Initializable {
             user.updateStatistics(5, amountsum + credit, "Versicherungs verloren: ", -amountsum - credit);
         }
     }
-    
+
     //Resets everything, when reset button is clicked
     @FXML
     private void resetAction(ActionEvent event) {
@@ -1197,19 +1206,19 @@ public class BlackjackGameController implements Initializable {
                 cardsdealer.add(new Card(36, 10));
                 break;
             case 37:
-                cardView.setImage(new Image(set + "/AC.png"));//
+                cardView.setImage(new Image(set + "/AC.png"));
                 cardsdealer.add(new Card(37, aceValue));
                 break;
             case 38:
-                cardView.setImage(new Image(set + "/AD.png"));//
+                cardView.setImage(new Image(set + "/AD.png"));
                 cardsdealer.add(new Card(38, aceValue));
                 break;
             case 39:
-                cardView.setImage(new Image(set + "/AH.png"));//
+                cardView.setImage(new Image(set + "/AH.png"));
                 cardsdealer.add(new Card(39, aceValue));
                 break;
             case 40:
-                cardView.setImage(new Image(set + "/AS.png"));//
+                cardView.setImage(new Image(set + "/AS.png"));
                 cardsdealer.add(new Card(40, aceValue));
                 break;
             case 41:
