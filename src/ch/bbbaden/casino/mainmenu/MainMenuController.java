@@ -84,6 +84,7 @@ public class MainMenuController implements Initializable {
 
     @FXML
     private void yatziAction(MouseEvent event) {
+        vm.showYatzy();
     }
 
     @FXML

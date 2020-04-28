@@ -70,5 +70,8 @@ public class MainMenuViewModel implements PropertyChangeListener{
     public void showSlots(){
         mainApp.showSlots();
     }
+    public void showYatzy(){
+        mainApp.showYatzyMenu();
+    }
    
 }

@@ -11,6 +11,7 @@ import ch.bbbaden.casino.mainmenu.*;
 import ch.bbbaden.casino.videopoker.*;
 import ch.bbbaden.casino.blackjack.*;
 import ch.bbbaden.casino.SlotMachine.*;
+import ch.bbbaden.casino.yatzy.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -257,6 +258,42 @@ public class MainApp extends Application {
         scene.getStylesheets().add("slotview.css");
         
         stage.setTitle("Slot-Machine");
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+     public void showYatzyGame(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("yatzy/YatzyGame.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        YatzyGameController view = loader.getController();
+        view.setMainApp(this);
+        
+
+        final Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.show();
+    }
+      public void showYatzyMenu(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("yatzy/YatzyMenu.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        YatzyMenuController view = loader.getController();
+        view.setMainApp(this);
+        view.setUser(user);
+        
+
+        final Scene scene = new Scene(root);
+
         stage.setScene(scene);
         stage.show();
     }
