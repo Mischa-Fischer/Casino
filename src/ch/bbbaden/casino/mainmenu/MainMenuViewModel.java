@@ -73,5 +73,7 @@ public class MainMenuViewModel implements PropertyChangeListener{
     public void showYatzy(){
         mainApp.showYatzyMenu();
     }
-   
+    public void showRoulette(){
+        mainApp.showRouletteMenu();
+    }
 }

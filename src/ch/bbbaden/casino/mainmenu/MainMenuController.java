@@ -65,6 +65,7 @@ public class MainMenuController implements Initializable {
 
     @FXML
     private void rouletteAction(MouseEvent event) {
+        vm.showRoulette();
     }
 
     @FXML
