@@ -250,7 +250,7 @@ public class BlackjackGameController implements Initializable {
     //When hit button is clicked
     @FXML
     private void hitAction(ActionEvent event) {
-        System.out.println(playersum);
+          System.out.println(playersum);
         if (playersum < 21 && hitactive == true) {
             vm.hitAction(cardstakenP);
             switch (cardstakenP) {
@@ -524,7 +524,7 @@ public class BlackjackGameController implements Initializable {
     @FXML
     private void doubleAction(MouseEvent event) {
 
-        //when double is clicked
+         //when double is clicked
         doubleTrue = true;
         //Counts the Amount twice
         int amount = Integer.parseInt(this.amountxt.getText());
@@ -941,7 +941,7 @@ public class BlackjackGameController implements Initializable {
                 cardsplayer.add(new Card(51, 10));
                 break;
             default:
-                System.out.println("Tired.");
+                System.out.println("Players card");
                 break;
 
         }
@@ -1160,7 +1160,7 @@ public class BlackjackGameController implements Initializable {
                 cardsdealer.add(new Card(51, 10));
                 break;
             default:
-                System.out.println("Tired. fook off");
+                System.out.println("Dealers card");
                 break;
         }
     }
