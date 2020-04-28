@@ -392,6 +392,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void btnTwentyfiveClick(ActionEvent event) {
         arr.add(25);
+        btnTwentyfive.setDisable(true);
     }
 
     @FXML
@@ -481,7 +482,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void btnTwentytwoClick(ActionEvent event) {
         arr.add(22);
-        btnTwentyfour.setDisable(true);
+        btnTwentytwo.setDisable(true);
     }
 
     @FXML

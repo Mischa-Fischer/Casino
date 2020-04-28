@@ -312,6 +312,7 @@ public class MainApp extends Application {
         FXMLDocumentController view = loader.getController();
         RouletteModel model = new RouletteModel();
         view.setModel(model);
+        view.setMainApp(this);
         view.bind();
         view.setUser(user);
         //Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
