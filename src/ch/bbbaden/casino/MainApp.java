@@ -256,7 +256,6 @@ public class MainApp extends Application {
         view.setUser(user);
         viewModel.setMainApp(this);
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("slotview.css");
         
         stage.setTitle("Slot-Machine");
         stage.setScene(scene);

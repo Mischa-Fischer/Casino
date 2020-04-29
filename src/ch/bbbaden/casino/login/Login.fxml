@@ -17,7 +17,7 @@
             <Image url="@../../../../picture/Background.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="181.0" layoutY="26.0" prefHeight="87.0" prefWidth="238.0" text="Casino Gruppe 8" textFill="WHITE">
+      <Label layoutX="181.0" layoutY="26.0" prefHeight="87.0" prefWidth="238.0" text="Casino Millénaire" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
