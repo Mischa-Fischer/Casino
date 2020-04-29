@@ -32,13 +32,13 @@ public class SlotsViewController implements Initializable {
     User user;
 
     //Bilder für die Slots
-    Image king = new Image("/pictures/king.jpg");
-    Image queen = new Image("/pictures/queen.png");
-    Image junge = new Image("/pictures/junge.jpg");
-    Image ten = new Image("/pictures/10.png");
-    Image ass = new Image("/pictures/ass.png");
-    Image liberte = new Image("/pictures/liberte.jpg");
-    Image joker = new Image("/pictures/joker.jpg");
+    Image king = new Image("/pictures/king_1.jpg");
+    Image queen = new Image("/pictures/queen.jpg");
+    Image junge = new Image("/pictures/junge_1.jpg");
+    Image ten = new Image("/pictures/10_1.png");
+    Image ass = new Image("/pictures/ass.jpg");
+    Image liberte = new Image("/pictures/l.jpg");
+    Image joker = new Image("/pictures/joker2.png");
 
     @FXML
     private Button btnStart;
