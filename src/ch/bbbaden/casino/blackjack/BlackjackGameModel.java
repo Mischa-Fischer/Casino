@@ -14,7 +14,7 @@ public class BlackjackGameModel {
     protected final PropertyChangeSupport changes = new PropertyChangeSupport(this);
 
     Random rand = new Random();
-    private int newcard = 0;
+    private int newcard;
     private double amountsum = 0;
 
     //When Play button is clicked, 4 cards will be shown randomly

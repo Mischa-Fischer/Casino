@@ -517,6 +517,7 @@ public class BlackjackGameController implements Initializable {
 
     @FXML
     private void menuAction(ActionEvent event) throws IOException {
+        
         vm.goToMenu();
     }
 
@@ -938,7 +939,7 @@ public class BlackjackGameController implements Initializable {
                 break;
             case 52:
                 cardView.setImage(new Image(set + "/QS.png"));
-                cardsplayer.add(new Card(51, 10));
+                cardsplayer.add(new Card(52, 10));
                 break;
             default:
                 System.out.println("Players card");
@@ -1157,7 +1158,7 @@ public class BlackjackGameController implements Initializable {
                 break;
             case 52:
                 cardView.setImage(new Image(set + "/QS.png"));
-                cardsdealer.add(new Card(51, 10));
+                cardsdealer.add(new Card(52, 10));
                 break;
             default:
                 System.out.println("Dealers card");
