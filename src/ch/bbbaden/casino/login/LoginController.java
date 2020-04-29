@@ -20,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
+import org.springframework.security.crypto.bcrypt.BCrypt.BCrypt;
 
 /**
  * FXML Controller class
@@ -84,7 +85,7 @@ public class LoginController implements Initializable {
         boolean funktioniert = false;
         for (User u : users) {
             if (u.getUsername().equals(username)) {
-                if (u.getPassword().equals(password)) {
+                if (BCrypt.checkpw(password,u.getPassword())) {
                     funktioniert = true;
                     mainApp.setUser(u);
                     mainApp.showMainMenu();

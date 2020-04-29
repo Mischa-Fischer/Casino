@@ -14,6 +14,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.springframework.security.crypto.bcrypt.BCrypt.BCrypt;
 
 /**
  *
@@ -84,6 +85,8 @@ public class Query {
         String query = "Insert Into users (`username`,`forename`,`surname`, `password`,`email`,`balance`,`age`, `role`) values (?,?,?,?,?,'0',?,'player')";
         Connection conn = jdbc.createConnection();
         PreparedStatement ps = conn.prepareStatement(query);
+        password = BCrypt.hashpw(password, BCrypt.gensalt());
+        System.out.println(password);
         ps.setString(1, username);
         ps.setString(2, forename);
         ps.setString(3, surname);
