@@ -60,7 +60,7 @@
             <ImageView fx:id="img5" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </VBox>
-      <Button fx:id="btnStart" layoutX="428.0" layoutY="112.0" mnemonicParsing="false" onAction="#btnStartClick" prefHeight="53.0" prefWidth="128.0" style="-fx-background-color: #ffcc00;" text="Start" />
+      <Button fx:id="btnStart" layoutX="407.0" layoutY="98.0" mnemonicParsing="false" onAction="#btnStartClick" prefHeight="82.0" prefWidth="168.0" style="-fx-background-color: #ffcc00; -fx-background-radius: 7em;" text="Start" />
       <Label fx:id="lblGesammterEinsatz" layoutX="592.0" layoutY="112.0" text="Gesammter Einsatz" textFill="WHITE" />
       <Label fx:id="lblGesammterEinsatzV" layoutX="592.0" layoutY="139.0" text="Label" textFill="WHITE" />
       <Label fx:id="lblKontostand" layoutX="248.0" layoutY="112.0" text="Kontostand" textFill="WHITE" />
@@ -70,7 +70,7 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Button fx:id="btnTwoLines" layoutX="73.0" layoutY="622.0" mnemonicParsing="false" onAction="#btnTwoLinesClick" prefHeight="65.0" prefWidth="158.0" style="-fx-background-color: #ff9980; -fx-background-radius: 5em;" text="2 Lines" />
+      <Button fx:id="btnTwoLines" layoutX="73.0" layoutY="622.0" mnemonicParsing="false" onAction="#btnTwoLinesClick" prefHeight="65.0" prefWidth="158.0" style="-fx-background-color: #ff9980; -fx-background-radius: 5em; -fx-border-color: #ff9900;" text="2 Lines" />
       <Button fx:id="btnThreeLines" layoutX="231.0" layoutY="580.0" mnemonicParsing="false" onAction="#btnThreeLinesClick" prefHeight="65.0" prefWidth="158.0" style="-fx-background-color: #ff704d; -fx-background-radius: 5em;" text="3 Lines" />
       <Button fx:id="btnFourLines" layoutX="578.0" layoutY="580.0" mnemonicParsing="false" onAction="#btnFourLinesClick" prefHeight="65.0" prefWidth="158.0" style="-fx-background-color: #ff5c33; -fx-background-radius: 7em;" text="4 Lines" />
       <Button fx:id="btnFiveLine" layoutX="737.0" layoutY="622.0" mnemonicParsing="false" onAction="#btnFiveLinesClick" prefHeight="65.0" prefWidth="158.0" style="-fx-background-color: #ff3300; -fx-background-radius: 5em;" text="5 Lines" />
