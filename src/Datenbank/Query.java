@@ -86,7 +86,6 @@ public class Query {
         Connection conn = jdbc.createConnection();
         PreparedStatement ps = conn.prepareStatement(query);
         password = BCrypt.hashpw(password, BCrypt.gensalt());
-        System.out.println(password);
         ps.setString(1, username);
         ps.setString(2, forename);
         ps.setString(3, surname);
