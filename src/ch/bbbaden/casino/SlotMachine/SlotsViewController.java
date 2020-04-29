@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -256,6 +257,11 @@ public class SlotsViewController implements Initializable {
             lblKontostandV.setText(Kontostand + "");
             intGewinn = ((int) arr.get(25))*lines ;
             bind();
+        }else{
+            JOptionPane.showMessageDialog(null,
+                            "Sie haben zu wenig Geld um auf diesem Einsatz zu spielen!",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
         }
     }
 
@@ -285,28 +291,28 @@ public class SlotsViewController implements Initializable {
     private void btnTwoLinesClick(ActionEvent event) {
         lines = 2;//*1
         intGesammterEinsatz = 2;
-        bind();
+         lblGesammterEinsatzV.setText(intGesammterEinsatz + "");
     }
 
     @FXML
     private void btnThreeLinesClick(ActionEvent event) {
         lines = 3;//*2
         intGesammterEinsatz = 6;
-        bind();
+         lblGesammterEinsatzV.setText(intGesammterEinsatz + "");
     }
 
     @FXML
     private void btnFourLinesClick(ActionEvent event) {
         lines = 4;//*3
         intGesammterEinsatz = 12;
-        bind();
+         lblGesammterEinsatzV.setText(intGesammterEinsatz + "");
     }
 
     @FXML
     private void btnFiveLinesClick(ActionEvent event) {
         lines = 5;//*5
         intGesammterEinsatz = 25;
-        bind();
+         lblGesammterEinsatzV.setText(intGesammterEinsatz + "");
     }
 
     @FXML
