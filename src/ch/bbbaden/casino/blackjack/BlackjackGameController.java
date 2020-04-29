@@ -250,7 +250,7 @@ public class BlackjackGameController implements Initializable {
     //When hit button is clicked
     @FXML
     private void hitAction(ActionEvent event) {
-        System.out.println(playersum);
+          System.out.println(playersum);
         if (playersum < 21 && hitactive == true) {
             vm.hitAction(cardstakenP);
             switch (cardstakenP) {
@@ -327,12 +327,18 @@ public class BlackjackGameController implements Initializable {
                 playersum += cardsplayer.get(i).getValue();
             }
             totalPlayerlbl.setText(Integer.toString(playersum));
+
         } else {
+
             JOptionPane.showMessageDialog(null,
                     "Press restart!",
                     "Error",
                     JOptionPane.WARNING_MESSAGE);
         }
+
+        insurancebtn.setDisable(true);
+        insurnacetxt.setDisable(true);
+        doublebtn.setDisable(true);
     }
 
     //When Stand button is clicked
@@ -346,48 +352,36 @@ public class BlackjackGameController implements Initializable {
             vm.standAction(dealersum, cardstakenD);
             cardDHide.setImage(null);
 
-            //Ace Value
-            dealersum = 0;
-            for (int i = 0; i < cardsdealer.size(); i++) {
-                dealersum += cardsdealer.get(i).getValue();
-            }
-            if (dealersum > 10) {
-                cardsDealer(card6, cardD3, "cards", 1);
-            } else {
-                cardsDealer(card6, cardD3, "cards", 11);
-            }
-
-            //new dealersum
             dealersum = 0;
             for (int i = 0; i < cardsdealer.size(); i++) {
                 dealersum += cardsdealer.get(i).getValue();
             }
 
-            playersum = 0;
-            for (int i = 0; i < cardsplayer.size(); i++) {
-                playersum += cardsplayer.get(i).getValue();
-            }
-            if (playersum > 21) {
+            if (dealersum < 17) {
+                vm.standAction(dealersum, cardstakenD);
+
+                if (dealersum > 10) {
+                    cardsDealer(card6, cardD3, "cards", 1);
+                } else {
+                    cardsDealer(card6, cardD3, "cards", 11);
+                }
+
+                //new dealersum
                 dealersum = 0;
                 for (int i = 0; i < cardsdealer.size(); i++) {
                     dealersum += cardsdealer.get(i).getValue();
                 }
-            } else {
-                //if sum <17 then new card
+
                 if (dealersum < 17) {
                     vm.standAction(dealersum, cardstakenD);
 
-                    //Ace value
-                    dealersum = 0;
-                    for (int i = 0; i < cardsdealer.size(); i++) {
-                        dealersum += cardsdealer.get(i).getValue();
-                    }
                     if (dealersum > 10) {
                         cardsDealer(card8, cardD4, "cards", 1);
                     } else {
                         cardsDealer(card8, cardD4, "cards", 11);
                     }
 
+                    //new dealersum
                     dealersum = 0;
                     for (int i = 0; i < cardsdealer.size(); i++) {
                         dealersum += cardsdealer.get(i).getValue();
@@ -396,18 +390,13 @@ public class BlackjackGameController implements Initializable {
                     if (dealersum < 17) {
                         vm.standAction(dealersum, cardstakenD);
 
-                        //Ace value
-                        dealersum = 0;
-                        for (int i = 0; i < cardsdealer.size(); i++) {
-                            dealersum += cardsdealer.get(i).getValue();
-                        }
-
                         if (dealersum > 10) {
                             cardsDealer(card10, cardD5, "cards", 1);
                         } else {
                             cardsDealer(card10, cardD5, "cards", 11);
                         }
 
+                        //new dealersum
                         dealersum = 0;
                         for (int i = 0; i < cardsdealer.size(); i++) {
                             dealersum += cardsdealer.get(i).getValue();
@@ -416,17 +405,17 @@ public class BlackjackGameController implements Initializable {
                 }
             }
 
-            totalDealerlbl.setText(Integer.toString(dealersum));
-
             dealersum = 0;
             for (int i = 0; i < cardsdealer.size(); i++) {
                 dealersum += cardsdealer.get(i).getValue();
             }
+            totalDealerlbl.setText(Integer.toString(dealersum));
 
             playersum = 0;
             for (int i = 0; i < cardsplayer.size(); i++) {
                 playersum += cardsplayer.get(i).getValue();
             }
+            totalPlayerlbl.setText(Integer.toString(playersum));
 
             checkAll(playersum, dealersum);
             standactive = false;
@@ -437,106 +426,42 @@ public class BlackjackGameController implements Initializable {
                     "Error",
                     JOptionPane.WARNING_MESSAGE);
         }
-
+        insurancebtn.setDisable(true);
+        insurnacetxt.setDisable(true);
+        doublebtn.setDisable(true);
     }
 
     //When player goes over 21 or when player click double 
     private void stand() {
-        if (doubleTrue == true) {
+        dealersum = 0;
+        for (int i = 0; i < cardsdealer.size(); i++) {
+            dealersum += cardsdealer.get(i).getValue();
+        }
+
+        vm.standAction(dealersum, cardstakenD);
+        cardDHide.setImage(null);
+        dealersum = 0;
+        for (int i = 0; i < cardsdealer.size(); i++) {
+            dealersum += cardsdealer.get(i).getValue();
+        }
+        playersum = 0;
+        for (int i = 0; i < cardsplayer.size(); i++) {
+            playersum += cardsplayer.get(i).getValue();
+        }
+        if (playersum > 21) {
             dealersum = 0;
             for (int i = 0; i < cardsdealer.size(); i++) {
                 dealersum += cardsdealer.get(i).getValue();
-            }
-            vm.standAction(dealersum, cardstakenD);
-            cardDHide.setImage(null);
-
-            //new dealersum
-            dealersum = 0;
-            for (int i = 0; i < cardsdealer.size(); i++) {
-                dealersum += cardsdealer.get(i).getValue();
-            }
-
-            playersum = 0;
-            for (int i = 0; i < cardsplayer.size(); i++) {
-                playersum += cardsplayer.get(i).getValue();
-            }
-            if (playersum > 21) {
-                dealersum = 0;
-                for (int i = 0; i < cardsdealer.size(); i++) {
-                    dealersum += cardsdealer.get(i).getValue();
-                }
-            } else {
-
-                //Ace value and if dealersum < 17 then new card
-                dealersum = 0;
-                for (int i = 0; i < cardsdealer.size(); i++) {
-                    dealersum += cardsdealer.get(i).getValue();
-                }
-                if (dealersum > 10) {
-                    cardsDealer(card3, cardD3, "cards", 1);
-                } else {
-                    cardsDealer(card3, cardD3, "cards", 11);
-                }
-
-                dealersum = 0;
-                for (int i = 0; i < cardsdealer.size(); i++) {
-                    dealersum += cardsdealer.get(i).getValue();
-                }
-                if (dealersum < 17) {
-                    vm.standAction(dealersum, cardstakenD);
-
-                    //Ace value
-                    dealersum = 0;
-                    for (int i = 0; i < cardsdealer.size(); i++) {
-                        dealersum += cardsdealer.get(i).getValue();
-                    }
-                    if (dealersum > 10) {
-                        cardsDealer(card8, cardD4, "cards", 1);
-                    } else {
-                        cardsDealer(card8, cardD4, "cards", 11);
-                    }
-
-                    dealersum = 0;
-                    for (int i = 0; i < cardsdealer.size(); i++) {
-                        dealersum += cardsdealer.get(i).getValue();
-                    }
-
-                    if (dealersum < 17) {
-                        vm.standAction(dealersum, cardstakenD);
-
-                        //Ace value
-                        dealersum = 0;
-                        for (int i = 0; i < cardsdealer.size(); i++) {
-                            dealersum += cardsdealer.get(i).getValue();
-                        }
-                        if (dealersum > 10) {
-                            cardsDealer(card10, cardD5, "cards", 1);
-                        } else {
-                            cardsDealer(card10, cardD5, "cards", 11);
-                        }
-
-                        dealersum = 0;
-                        for (int i = 0; i < cardsdealer.size(); i++) {
-                            dealersum += cardsdealer.get(i).getValue();
-                        }
-                    }
-                }
-                totalDealerlbl.setText(Integer.toString(dealersum));
-
-                playersum = 0;
-                for (int i = 0; i < cardsplayer.size(); i++) {
-                    playersum += cardsplayer.get(i).getValue();
-                }
-                checkAll(playersum, dealersum);
             }
         } else {
-            if (standactive == true) {
-                dealersum = 0;
-                for (int i = 0; i < cardsdealer.size(); i++) {
-                    dealersum += cardsdealer.get(i).getValue();
-                }
+            if (dealersum < 17) {
                 vm.standAction(dealersum, cardstakenD);
-                cardDHide.setImage(null);
+
+                if (dealersum > 10) {
+                    cardsDealer(card6, cardD3, "cards", 1);
+                } else {
+                    cardsDealer(card6, cardD3, "cards", 11);
+                }
 
                 //new dealersum
                 dealersum = 0;
@@ -544,21 +469,16 @@ public class BlackjackGameController implements Initializable {
                     dealersum += cardsdealer.get(i).getValue();
                 }
 
-                //if sum <17 then new card
                 if (dealersum < 17) {
                     vm.standAction(dealersum, cardstakenD);
 
-                    //Ace value 
-                    dealersum = 0;
-                    for (int i = 0; i < cardsdealer.size(); i++) {
-                        dealersum += cardsdealer.get(i).getValue();
-                    }
                     if (dealersum > 10) {
                         cardsDealer(card8, cardD4, "cards", 1);
                     } else {
                         cardsDealer(card8, cardD4, "cards", 11);
                     }
 
+                    //new dealersum
                     dealersum = 0;
                     for (int i = 0; i < cardsdealer.size(); i++) {
                         dealersum += cardsdealer.get(i).getValue();
@@ -567,67 +487,32 @@ public class BlackjackGameController implements Initializable {
                     if (dealersum < 17) {
                         vm.standAction(dealersum, cardstakenD);
 
-                        //Ace value
-                        dealersum = 0;
-                        for (int i = 0; i < cardsdealer.size(); i++) {
-                            dealersum += cardsdealer.get(i).getValue();
-                        }
                         if (dealersum > 10) {
                             cardsDealer(card10, cardD5, "cards", 1);
                         } else {
                             cardsDealer(card10, cardD5, "cards", 11);
                         }
 
+                        //new dealersum
                         dealersum = 0;
                         for (int i = 0; i < cardsdealer.size(); i++) {
                             dealersum += cardsdealer.get(i).getValue();
                         }
                     }
                 }
-                totalDealerlbl.setText(Integer.toString(dealersum));
-
-                dealersum = 0;
-                for (int i = 0; i < cardsdealer.size(); i++) {
-                    dealersum += cardsdealer.get(i).getValue();
-                }
-
-                playersum = 0;
-                for (int i = 0; i < cardsplayer.size(); i++) {
-                    playersum += cardsplayer.get(i).getValue();
-                }
-
-                checkAll(playersum, dealersum);
-                standactive = false;
-                hitactive = false;
             }
-            totalDealerlbl.setText(Integer.toString(dealersum));
-
-            dealersum = 0;
-            for (int i = 0; i < cardsdealer.size(); i++) {
-                dealersum += cardsdealer.get(i).getValue();
-            }
-
-            playersum = 0;
-            for (int i = 0; i < cardsplayer.size(); i++) {
-                playersum += cardsplayer.get(i).getValue();
-            }
-
-            checkAll(playersum, dealersum);
-            standactive = false;
-            hitactive = false;
         }
-
         dealersum = 0;
         for (int i = 0; i < cardsdealer.size(); i++) {
             dealersum += cardsdealer.get(i).getValue();
         }
-        totalDealerlbl.setText(Integer.toString(dealersum));
-
         playersum = 0;
         for (int i = 0; i < cardsplayer.size(); i++) {
             playersum += cardsplayer.get(i).getValue();
         }
-        totalPlayerlbl.setText(Integer.toString(playersum));
+
+        checkAll(playersum, dealersum);
+        totalDealerlbl.setText(Integer.toString(dealersum));
     }
 
     @FXML
@@ -639,7 +524,7 @@ public class BlackjackGameController implements Initializable {
     @FXML
     private void doubleAction(MouseEvent event) {
 
-        //when double is clicked
+         //when double is clicked
         doubleTrue = true;
         //Counts the Amount twice
         int amount = Integer.parseInt(this.amountxt.getText());
@@ -777,6 +662,7 @@ public class BlackjackGameController implements Initializable {
                     "You clicked Insurance.",
                     "Insurnace.",
                     JOptionPane.INFORMATION_MESSAGE);
+            insurancebtn.setDisable(true);
         }
     }
 
@@ -1054,6 +940,10 @@ public class BlackjackGameController implements Initializable {
                 cardView.setImage(new Image(set + "/QS.png"));
                 cardsplayer.add(new Card(51, 10));
                 break;
+            default:
+                System.out.println("Players card");
+                break;
+
         }
     }
 
@@ -1269,7 +1159,9 @@ public class BlackjackGameController implements Initializable {
                 cardView.setImage(new Image(set + "/QS.png"));
                 cardsdealer.add(new Card(51, 10));
                 break;
+            default:
+                System.out.println("Dealers card");
+                break;
         }
     }
-
 }
