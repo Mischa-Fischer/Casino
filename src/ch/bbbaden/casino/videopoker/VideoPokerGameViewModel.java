@@ -11,12 +11,14 @@ import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author misch
  */
-public class VideoPokerGameViewModel implements PropertyChangeListener{
+public class VideoPokerGameViewModel implements PropertyChangeListener {
+
     private VideoPokerGameModel model;
     private MainApp mainApp;
     private ArrayList<Card> deck = new ArrayList();
@@ -26,7 +28,7 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
     private StringProperty winQuote = new SimpleStringProperty();
     private StringProperty balance = new SimpleStringProperty();
     private boolean ersteRunde = true;
-    
+
     public VideoPokerGameViewModel(VideoPokerGameModel model) {
         this.model = model;
         coinVal.setValue("0.25 $");
@@ -41,7 +43,7 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
     public StringProperty getWinQuote() {
         return winQuote;
     }
-    
+
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
@@ -49,70 +51,85 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         //verbindung mit dem Model
-        if(evt.getPropertyName().equals("Bet")){
+        if (evt.getPropertyName().equals("Bet")) {
             coinAnz.set(evt.getNewValue().toString());
-        }else if(evt.getPropertyName().equals("updateCoin")){
+        } else if (evt.getPropertyName().equals("updateCoin")) {
             coinVal.set(evt.getNewValue().toString() + " $");
-        }else if(evt.getPropertyName().equals("win")){           
-            winQuote.set(evt.getNewValue().toString());            
-        }else if(evt.getPropertyName().equals("winTxt")){
+        } else if (evt.getPropertyName().equals("win")) {
+            winQuote.set(evt.getNewValue().toString());
+        } else if (evt.getPropertyName().equals("winTxt")) {
             winTxt.set(evt.getNewValue().toString());
-        }else if(evt.getPropertyName().equals("balanceUpdate")){
+        } else if (evt.getPropertyName().equals("balanceUpdate")) {
             balance.set(evt.getNewValue().toString());
         }
-        
-          
+
     }
 
     public StringProperty getBalance() {
         return balance;
     }
-    
-    public StringProperty getCoinAnz() {     
+
+    public StringProperty getCoinAnz() {
         return coinAnz;
     }
-    public void bet1(){
+
+    public void bet1() {
         model.coinAnzBet1();
     }
-    public void bet5(){
+
+    public void bet5() {
         model.coinAnzBet5();
     }
-    public void setCoinVal(){
+
+    public void setCoinVal() {
         model.setCoinVal();
     }
-    
-    public void spiele(){
+
+    public void spiele() {
         winTxt.set("");
         model.deal();
         deck = model.getCardsOnTable();
     }
-    public Card getCard(int i){
+
+    public Card getCard(int i) {
         return deck.get(i);
     }
-    public void card(int i){
+
+    public void card(int i) {
         model.card1Hold(i);
     }
 
     public StringProperty getWinTxt() {
         return winTxt;
     }
-    public void gamble(){
+
+    public void gamble() {
         model.gamble();
         deck = model.getCardsOnTable();
     }
-    public void vergleicheCardsGamble(int i){
+
+    public void vergleicheCardsGamble(int i) {
         model.vergleicheCardsGamble(i);
     }
-    public void hilfe(){
+
+    public void hilfe() {
         mainApp.showVideoPokerHilfe();
     }
-    public void goToMenu(){
-        mainApp.showMainMenu();
+
+    public void goToMenu() {
+        
+        int eingabe = JOptionPane.showConfirmDialog(null, "Wollen Sie das Spiel wirklich abbrechen? "
+                + "Ihr Einsatz geht verloren.", "Abbruch", JOptionPane.YES_NO_OPTION);
+        if (eingabe == 0) {
+            mainApp.showMainMenu();
+        }
     }
-    public double getPlayerBalance(){
+
+    public double getPlayerBalance() {
         return model.getBalance();
     }
-    public double getCoins(){
+
+    public double getCoins() {
         return model.getCoinVal();
     }
 }
