@@ -290,6 +290,17 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void btnHilfeClick(ActionEvent event) {
+        JOptionPane.showMessageDialog(null, "Bei Roulette muss man zuerst, "
+                + "oben links in der DropDown List den Wert eines Coins auszuwählen "
+                + "un dann kann man auf dem Spielbrett den Ort ankilcken, "
+                + "auf den man setzten will."
+                + " \nDanach muss man auf Spielen klicken. "
+                + "\n"
+                + "Danach steht links neben dem Roulette, welche Zahl es geworden ist "
+                + "und rechts neben dran wie viel man gewonnen hat. "
+                + "\n"
+                + "Der gewonnene Betrag wird direkt dem Konto gut geschrieben. ", 
+               "Hilfe", JOptionPane.INFORMATION_MESSAGE);
 
     }
 
