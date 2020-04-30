@@ -101,12 +101,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
         </Button>
-        <Label layoutX="1000.0" layoutY="74.0" text="Dealer summe: " textFill="WHITE">
+        <Label layoutX="1011.0" layoutY="74.0" text="Dealer sum: " textFill="WHITE">
             <font>
                 <Font name="VAGRounded BT" size="18.0" />
             </font>
         </Label>
-        <Label layoutX="1001.0" layoutY="107.0" text="Player summe:" textFill="WHITE">
+        <Label layoutX="1011.0" layoutY="107.0" text="Player sum:" textFill="WHITE">
             <font>
                 <Font name="VAGRounded BT" size="18.0" />
             </font>
