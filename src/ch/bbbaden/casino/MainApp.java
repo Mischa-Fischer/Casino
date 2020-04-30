@@ -64,6 +64,7 @@ public class MainApp extends Application {
             view.userAdmin();
             final Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setTitle("Menu");
             stage.show();
 
         } catch (IOException ex) {
@@ -81,6 +82,7 @@ public class MainApp extends Application {
             view.setMainApp(this);
             final Scene scene = new Scene(root);
             stage.setScene(scene);
+             stage.setTitle("Login");
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
@@ -98,6 +100,7 @@ public class MainApp extends Application {
             view.setMainApp(this);
             final Scene scene = new Scene(root);
             stage.setScene(scene);
+             stage.setTitle("Registrierung");
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
@@ -116,6 +119,7 @@ public class MainApp extends Application {
             view.setUser(user);
             final Scene scene = new Scene(root);
             stage.setScene(scene);
+             stage.setTitle("Kasse");
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
@@ -133,6 +137,7 @@ public class MainApp extends Application {
             view.setMainApp(this);
             final Scene scene = new Scene(root);
             stage.setScene(scene);
+             stage.setTitle("Statistik");
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
@@ -152,6 +157,7 @@ public class MainApp extends Application {
             view.bind();
             final Scene scene = new Scene(root);
             stage.setScene(scene);
+             stage.setTitle("VideoPoker");
             stage.show();
 
         } catch (IOException ex) {
@@ -173,6 +179,7 @@ public class MainApp extends Application {
             view.bind();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setTitle("VideoPoker");
             stage.show();
 
         } catch (IOException ex) {
@@ -190,6 +197,7 @@ public class MainApp extends Application {
             view.setMainApp(this);
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setTitle("VideoPoker");
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
@@ -208,6 +216,7 @@ public class MainApp extends Application {
             view.bind();
             final Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setTitle("Blackjack");
             stage.show();
 
         } catch (IOException ex) {
@@ -231,6 +240,7 @@ public class MainApp extends Application {
             Scene scene = new Scene(root);
 
             stage.setScene(scene);
+            stage.setTitle("Blackjack");
             stage.show();
 
         } catch (IOException ex) {
@@ -277,6 +287,7 @@ public class MainApp extends Application {
         final Scene scene = new Scene(root);
 
         stage.setScene(scene);
+        stage.setTitle("Yatzy");
         stage.show();
     }
       public void showYatzyMenu(){
@@ -295,6 +306,7 @@ public class MainApp extends Application {
         final Scene scene = new Scene(root);
 
         stage.setScene(scene);
+        stage.setTitle("Yatzy");
         stage.show();
     }
       
@@ -319,6 +331,7 @@ public class MainApp extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
+        stage.setTitle("Roulette");
         stage.show();
         
     }
@@ -339,6 +352,7 @@ public class MainApp extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
+        stage.setTitle("Roulette");
         stage.show();
         
     }
